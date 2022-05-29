@@ -20,14 +20,10 @@ class EthanNum:
         if doing == 1:
             __len = len(nums)
             if __len > 1:
-                i = 0
-                while i < __len:
-                    j = i
-                    while j < __len:
-                        if nums[i] + nums[j] == target:         
+                for i in range(0, __len):
+                    for j in range(i, __len):
+                        if nums[i] + nums[j] == target:
                             return [i, j]
-                        j = j + 1
-                    i = i + 1
 
         return [-1, -1]
 
