@@ -29,3 +29,23 @@ class EthanNum:
 
 
 
+    '''
+    # 罗马数字解析
+    # I             1
+    # V             5
+    # X             10
+    # L             50
+    # C             100
+    # D             500
+    # M             1000
+    # 规则：VIII - 8；IX - 9
+    # 例：MCMXCIV - 1994
+    '''
+    def romanToInt(self, s: str = 'MCMXCIV') -> int:
+        '''
+        # todo:
+        '''
+        return 0
+
+
+
