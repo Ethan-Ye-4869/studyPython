@@ -44,7 +44,22 @@ class EthanNum:
     def romanToInt(self, s: str = 'MCMXCIV') -> int:
         '''
         # todo:
+            1.从右往左遍历，加当前位，如果前一位小于当前位，则减去前一位
         '''
+        doing = 1
+        roman = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
+
+        if doing == 1:
+            index = len(s) - 1
+            romanInt = 0
+            while index >= 0:
+                romanInt += roman.get(s[index])
+                if index > 0 and roman.get(s[index - 1]) < roman.get(s[index]):
+                    index -= 1
+                    romanInt -= roman.get(s[index])
+                index -= 1
+            return romanInt
+
         return 0
 
 
