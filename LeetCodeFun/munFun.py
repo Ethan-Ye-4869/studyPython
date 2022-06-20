@@ -65,14 +65,10 @@ class EthanNum:
 
     '''
     # 整数反转
-    # 限制：在int整数范围内[-2^31, 2^31 -1]
-    '''
-    '''
-    # 整数反转
     # 范围：[-2^31, 2^31 - 1]
     '''
 
-    def reverse(x: int = -1234) -> int:
+    def reverse(self, x: int = -1234) -> int:
         '''
         # todo:
             1.把int转换成字符串处理
@@ -103,4 +99,7 @@ class EthanNum:
             if r > 2 ** 31 - 1 or r <= -2 ** 31:
                 return 0
             return r
+
+
+
 
