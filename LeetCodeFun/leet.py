@@ -28,6 +28,45 @@ class Solution:
                 r = True
             return r
 
+    '''字符串转整数, 0-9 : 48-57'''
+    def myAtoi(self, s: str) -> int:
+        ''' 清除空格 + 第一个符号正负或数字 + 转换'''
+        __len = len(s)
+
+        r = i = 0
+        isPositive = True # 正数
+
+        while i < __len:
+            if s[i] == ' ':
+                i += 1
+                continue
+            else:
+                break
+
+        if i < __len and s[i] == '+':
+            i += 1
+        elif i < __len and s[i] == '-':
+            isPositive = False
+            i += 1
+
+        while i < __len:
+            bit  = ord(s[i]) - 48
+            if bit >= 0 and bit <= 9:
+                r = r * 10 + bit
+                i += 1
+            else:
+                break
+
+        if r > 0 and isPositive == False:
+            r = -r
+
+        if r < -2 ** 31:
+            r = -2 ** 31
+        if r > 2 ** 31 -1:
+            r = 2 ** 31 -1
+
+        return r
+
 
 #e = Solution()
 #print(e.isPalindrome(0))
