@@ -12,20 +12,26 @@ class EthanNum:
     def twoSum(self, nums: List[int] = [2, 7, 11, 15], target: int = 9) -> List[int]:
         '''
         # todo：
-            1.暴力解法：从第一个数据开始往后遍历寻找和为target的值
+            1.枚举法：从第一个数据开始往后遍历寻找和为target的值
+            2.hash table：建立一个哈希表存储遍历过的数据，可实现一个for循环查找
         '''
         # 状态值doing对应todo list
         doing = 1
 
         if doing == 1:
-            __len = len(nums)
-            if __len > 1:
-                for i in range(0, __len):
-                    for j in range(i, __len):
-                        if nums[i] + nums[j] == target:
-                            return [i, j]
+            l = len(nums)
+            for i in range(l):
+                for j in range(i + 1, l):
+                    if nums[i] + nums[j] == target:
+                        return [i, j]
+        elif doing == 2:
+            hashTable = dict()
+            for i, num in enumerate(nums):
+                if target - num in hashTable:
+                    return [hashTable[target - num], i]
+                hashTable[num] = i
 
-        return [-1, -1]
+        return []
 
 
 
@@ -100,6 +106,21 @@ class EthanNum:
                 return 0
             return r
 
+
+    '''
+    # 两数相加(非负逆序链表)
+    # 100 => 0 -> 0 -> 1
+    '''
+    class ListNode:
+        def __init__(self, val=0, next=None):
+            self.val = val
+            self.next = next
+
+    def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
+        '''
+        # todo:
+            1.从左到右相加(最低位开始相加)
+        '''
 
 
 
