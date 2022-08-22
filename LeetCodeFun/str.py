@@ -44,5 +44,25 @@ class StrSolution:
 
         return None
 
+    '''在haystack中找到needle第一次出现的位置'''
+    def strStr(self, haystack: str, needle: str) -> int:
+        lneedle = len(needle)
+        if lneedle == 0:
+            return 0
+        p = 0
+        l = len(haystack) - lneedle
+        while p <= l:
+            if haystack[p] == needle[0]:
+                index = p
+                for j in range(lneedle):
+                    if haystack[index] == needle[j]:
+                        index += 1
+                        if j == lneedle - 1:
+                            return p
+                    else:
+                        break
+            p += 1
+        return -1
+
 # e = StrSolution()
 # print(e.convert('AB', 1))
